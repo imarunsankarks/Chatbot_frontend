@@ -120,11 +120,6 @@ export default function ChatBot() {
             ➤
           </button>
         </div>
-
-        {/* Footer */}
-        <div className="text-center small text-muted py-1" style={{ backgroundColor: "#f8f9fa" }}>
-          We’re ⚡ by Drift
-        </div>
       </div>
     </div>
   );
