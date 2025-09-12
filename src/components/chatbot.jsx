@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../App.css';
+import { useTheme } from "../context/theme";
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([
@@ -8,6 +9,7 @@ export default function ChatBot() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // Send message
   const handleSend = async () => {
@@ -56,7 +58,7 @@ export default function ChatBot() {
       className="d-flex justify-content-center align-items-center vh-100"
       style={{ background: "#ffffffff" }}
     >
-      <div className="card shadow-lg rounded-4" style={{ width: "450px", overflow: "hidden" }}>
+      <div className={`card shadow-lg rounded-4 ${theme === 'light'? "light": "dark"}`} style={{ width: "450px", overflow: "hidden" }}>
         {/* Header */}
         <div id="header">
           <div className="d-flex align-items-center">
@@ -71,6 +73,12 @@ export default function ChatBot() {
               <div className="small">● Online Now</div>
             </div>
           </div>
+          <button
+            onClick={toggleTheme}
+            className="btn btn-sm btn-outline-light"
+          >
+            {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+          </button>
           <div>⋮</div>
         </div>
 
