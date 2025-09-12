@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import '../App.css';
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([
@@ -46,7 +47,6 @@ export default function ChatBot() {
     }
   };
 
-  // Handle Enter key
   const handleKeyDown = (e) => {
     if (e.key === "Enter") handleSend();
   };
@@ -56,12 +56,9 @@ export default function ChatBot() {
       className="d-flex justify-content-center align-items-center vh-100"
       style={{ background: "#ffffffff" }}
     >
-      <div className="card shadow-lg rounded-4" style={{ width: "380px", overflow: "hidden" }}>
+      <div className="card shadow-lg rounded-4" style={{ width: "450px", overflow: "hidden" }}>
         {/* Header */}
-        <div
-          className="d-flex justify-content-between align-items-center p-2 text-white"
-          style={{ backgroundColor: "#8938d4ff" }}
-        >
+        <div id="header">
           <div className="d-flex align-items-center">
             <div
               className="bg-light text-dark rounded-circle d-flex justify-content-center align-items-center me-2"
@@ -71,7 +68,7 @@ export default function ChatBot() {
             </div>
             <div>
               <div className="fw-bold">LeadBot</div>
-              <div className="small text-success">● Online Now</div>
+              <div className="small">● Online Now</div>
             </div>
           </div>
           <div>⋮</div>
@@ -88,7 +85,7 @@ export default function ChatBot() {
             >
               <div
                 className={`p-2 rounded-4 ${
-                  msg.from === "user" ? "bg-primary text-white" : "bg-white border"
+                  msg.from === "user" ? "bg-theme text-white" : "bg-white border"
                 }`}
                 style={{ maxWidth: "75%" }}
               >
@@ -107,16 +104,16 @@ export default function ChatBot() {
         </div>
 
         {/* Input Box */}
-        <div className="d-flex border-top">
+        <div className="message-field">
           <input
             type="text"
             placeholder="Reply to LeadBot..."
-            className="form-control border-0 rounded-0"
+            className="form-control border-0"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
           />
-          <button onClick={handleSend} className="btn btn-primary rounded-0">
+          <button onClick={handleSend} className="btn">
             ➤
           </button>
         </div>
