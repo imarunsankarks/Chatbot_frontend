@@ -73,13 +73,16 @@ export default function ChatBot() {
               <div className="small">● Online Now</div>
             </div>
           </div>
-          <button
-            onClick={toggleTheme}
-            className="btn btn-sm btn-outline-light"
-          >
-            {theme === "light" ? "🌙 Dark" : "☀️ Light"}
-          </button>
-          <div>⋮</div>
+          <div className="d-flex align-items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="btn btn-sm toggle-btn"
+            >
+              {theme === "light" ? "🌙" : "☀️"}
+            </button>
+            <div>⋮</div>
+
+          </div>
         </div>
 
         {/* Messages */}
@@ -93,7 +96,7 @@ export default function ChatBot() {
             >
               <div
                 className={`p-2 rounded-4 ${
-                  msg.from === "user" ? "bg-theme text-white" : "bg-white border"
+                  msg.from === "user" ? "bg-theme text-white" : theme === 'light'? "light-chat": "dark-chat"
                 }`}
                 style={{ maxWidth: "75%" }}
               >
@@ -112,7 +115,7 @@ export default function ChatBot() {
         </div>
 
         {/* Input Box */}
-        <div className="message-field">
+        <div className={`message-field ${theme === 'dark'? "dark-field": ""}`}>
           <input
             type="text"
             placeholder="Reply to LeadBot..."
