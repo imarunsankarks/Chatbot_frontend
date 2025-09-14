@@ -56,9 +56,8 @@ export default function ChatBot() {
   return (
     <div
       className="d-flex justify-content-center align-items-center vh-100"
-      style={{ background: "#ffffffff" }}
     >
-      <div className={`card shadow-lg rounded-4 ${theme === 'light'? "light": "dark"}`} style={{ width: "450px", overflow: "hidden" }}>
+      <div className={`card shadow-lg rounded-4 ${theme === 'light'? "light": "dark"}`} style={{ width: "450px", height:"535px", overflow: "hidden" }}>
         {/* Header */}
         <div id="header">
           <div className="d-flex align-items-center">

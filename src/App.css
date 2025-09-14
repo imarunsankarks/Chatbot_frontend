@@ -25,6 +25,13 @@
   /* color: #fff !important; */
 }
 
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .bg-theme {
   background-color: var(--theme);
 }
